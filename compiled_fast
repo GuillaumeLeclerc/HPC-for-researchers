@@ -1,0 +1,821 @@
+.text
+	.file	"<string>"
+	.section	.rodata.cst8,"aM",@progbits,8
+	.p2align	3
+.LCPI0_0:
+	.quad	0x7fffffffffffffff
+.LCPI0_1:
+	.quad	0x3fd5555555555555
+	.section	.rodata.cst16,"aM",@progbits,16
+	.p2align	4
+.LCPI0_2:
+	.quad	0x7fffffffffffffff
+	.quad	0x7fffffffffffffff
+	.text
+	.globl	_ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE
+	.p2align	4, 0x90
+	.type	_ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE,@function
+_ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	pushq	%r15
+	.cfi_def_cfa_offset 24
+	pushq	%r14
+	.cfi_def_cfa_offset 32
+	pushq	%r13
+	.cfi_def_cfa_offset 40
+	pushq	%r12
+	.cfi_def_cfa_offset 48
+	pushq	%rbx
+	.cfi_def_cfa_offset 56
+	pushq	%rax
+	.cfi_def_cfa_offset 64
+	.cfi_offset %rbx, -56
+	.cfi_offset %r12, -48
+	.cfi_offset %r13, -40
+	.cfi_offset %r14, -32
+	.cfi_offset %r15, -24
+	.cfi_offset %rbp, -16
+	movq	%rdx, %r12
+	movq	%rsi, %rbx
+	movq	%rdi, %r13
+	movq	72(%rsp), %r14
+	movabsq	$NRT_incref, %rax
+	movq	%rdx, %rdi
+	callq	*%rax
+	imulq	$8, %r14, %r15
+	jo	.LBB0_46
+	movabsq	$NRT_MemInfo_alloc_safe_aligned, %rbp
+	movq	%r15, %rdi
+	movl	$32, %esi
+	callq	*%rbp
+	movq	%rax, %rbx
+	movabsq	$NRT_decref, %r8
+	testq	%r14, %r14
+	jle	.LBB0_4
+	movq	64(%rsp), %rax
+	movq	%rbx, (%rsp)
+	movq	24(%rbx), %rbx
+	cmpq	$1, %r14
+	jne	.LBB0_5
+	vmovsd	(%rax), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, (%rbx)
+	jmp	.LBB0_20
+.LBB0_4:
+	movq	%r12, %rdi
+	movq	%r8, %r12
+	callq	*%r8
+	movq	%r15, %rdi
+	movl	$32, %esi
+	callq	*%rbp
+	movq	24(%rax), %rcx
+	jmp	.LBB0_44
+.LBB0_5:
+	cmpq	$16, %r14
+	jb	.LBB0_6
+	leaq	(%rax,%r14,8), %rcx
+	cmpq	%rcx, %rbx
+	jae	.LBB0_10
+	leaq	(%rbx,%r14,8), %rcx
+	cmpq	%rax, %rcx
+	jbe	.LBB0_10
+.LBB0_6:
+	xorl	%ecx, %ecx
+.LBB0_16:
+	movq	%rcx, %rdx
+	notq	%rdx
+	addq	%r14, %rdx
+	movq	%r14, %rsi
+	andq	$7, %rsi
+	je	.LBB0_18
+	.p2align	4, 0x90
+.LBB0_17:
+	vmovsd	(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, (%rbx,%rcx,8)
+	incq	%rcx
+	decq	%rsi
+	jne	.LBB0_17
+.LBB0_18:
+	cmpq	$7, %rdx
+	jb	.LBB0_20
+	.p2align	4, 0x90
+.LBB0_19:
+	vmovsd	(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, (%rbx,%rcx,8)
+	vmovsd	8(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, 8(%rbx,%rcx,8)
+	vmovsd	16(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, 16(%rbx,%rcx,8)
+	vmovsd	24(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, 24(%rbx,%rcx,8)
+	vmovsd	32(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, 32(%rbx,%rcx,8)
+	vmovsd	40(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, 40(%rbx,%rcx,8)
+	vmovsd	48(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, 48(%rbx,%rcx,8)
+	vmovsd	56(%rax,%rcx,8), %xmm0
+	vaddsd	%xmm0, %xmm0, %xmm0
+	vmovsd	%xmm0, 56(%rbx,%rcx,8)
+	addq	$8, %rcx
+	cmpq	%rcx, %r14
+	jne	.LBB0_19
+	jmp	.LBB0_20
+.LBB0_10:
+	movq	%r14, %rcx
+	andq	$-16, %rcx
+	leaq	-16(%rcx), %rdx
+	movq	%rdx, %rsi
+	shrq	$4, %rsi
+	incq	%rsi
+	testq	%rdx, %rdx
+	je	.LBB0_30
+	movq	%rsi, %rdi
+	andq	$-2, %rdi
+	xorl	%edx, %edx
+	.p2align	4, 0x90
+.LBB0_12:
+	vmovupd	(%rax,%rdx,8), %ymm0
+	vmovupd	32(%rax,%rdx,8), %ymm1
+	vmovupd	64(%rax,%rdx,8), %ymm2
+	vmovupd	96(%rax,%rdx,8), %ymm3
+	vaddpd	%ymm0, %ymm0, %ymm0
+	vaddpd	%ymm1, %ymm1, %ymm1
+	vaddpd	%ymm2, %ymm2, %ymm2
+	vaddpd	%ymm3, %ymm3, %ymm3
+	vmovupd	%ymm0, (%rbx,%rdx,8)
+	vmovupd	%ymm1, 32(%rbx,%rdx,8)
+	vmovupd	%ymm2, 64(%rbx,%rdx,8)
+	vmovupd	%ymm3, 96(%rbx,%rdx,8)
+	vmovupd	128(%rax,%rdx,8), %ymm0
+	vmovupd	160(%rax,%rdx,8), %ymm1
+	vmovupd	192(%rax,%rdx,8), %ymm2
+	vmovupd	224(%rax,%rdx,8), %ymm3
+	vaddpd	%ymm0, %ymm0, %ymm0
+	vaddpd	%ymm1, %ymm1, %ymm1
+	vaddpd	%ymm2, %ymm2, %ymm2
+	vaddpd	%ymm3, %ymm3, %ymm3
+	vmovupd	%ymm0, 128(%rbx,%rdx,8)
+	vmovupd	%ymm1, 160(%rbx,%rdx,8)
+	vmovupd	%ymm2, 192(%rbx,%rdx,8)
+	vmovupd	%ymm3, 224(%rbx,%rdx,8)
+	addq	$32, %rdx
+	addq	$-2, %rdi
+	jne	.LBB0_12
+	testb	$1, %sil
+	je	.LBB0_15
+.LBB0_14:
+	vmovupd	(%rax,%rdx,8), %ymm0
+	vmovupd	32(%rax,%rdx,8), %ymm1
+	vmovupd	64(%rax,%rdx,8), %ymm2
+	vmovupd	96(%rax,%rdx,8), %ymm3
+	vaddpd	%ymm0, %ymm0, %ymm0
+	vaddpd	%ymm1, %ymm1, %ymm1
+	vaddpd	%ymm2, %ymm2, %ymm2
+	vaddpd	%ymm3, %ymm3, %ymm3
+	vmovupd	%ymm0, (%rbx,%rdx,8)
+	vmovupd	%ymm1, 32(%rbx,%rdx,8)
+	vmovupd	%ymm2, 64(%rbx,%rdx,8)
+	vmovupd	%ymm3, 96(%rbx,%rdx,8)
+.LBB0_15:
+	cmpq	%r14, %rcx
+	jne	.LBB0_16
+.LBB0_20:
+	movq	%r12, %rdi
+	movq	%r8, %r12
+	vzeroupper
+	callq	*%r8
+	movq	%r15, %rdi
+	movl	$32, %esi
+	callq	*%rbp
+	movq	24(%rax), %rcx
+	testq	%r14, %r14
+	jle	.LBB0_43
+	cmpq	$1, %r14
+	jne	.LBB0_23
+	vmovsd	(%rbx), %xmm0
+	movabsq	$.LCPI0_2, %rdx
+	vandpd	(%rdx), %xmm0, %xmm1
+	vsqrtsd	%xmm1, %xmm1, %xmm1
+	movabsq	$.LCPI0_1, %rdx
+	vaddsd	(%rdx), %xmm0, %xmm2
+	vfmadd213sd	%xmm1, %xmm0, %xmm2
+	vmovsd	%xmm2, (%rcx)
+	jmp	.LBB0_43
+.LBB0_23:
+	cmpq	$4, %r14
+	jb	.LBB0_24
+	leaq	(%rbx,%r14,8), %rdx
+	cmpq	%rdx, %rcx
+	jae	.LBB0_28
+	leaq	(%rcx,%r14,8), %rdx
+	cmpq	%rdx, %rbx
+	jae	.LBB0_28
+.LBB0_24:
+	xorl	%edx, %edx
+.LBB0_37:
+	movq	%rdx, %rsi
+	notq	%rsi
+	addq	%r14, %rsi
+	movq	%r14, %rbp
+	movabsq	$.LCPI0_2, %r8
+	andq	$3, %rbp
+	je	.LBB0_40
+	vmovapd	(%r8), %xmm0
+	movabsq	$.LCPI0_1, %rdi
+	vmovsd	(%rdi), %xmm1
+	.p2align	4, 0x90
+.LBB0_39:
+	vmovsd	(%rbx,%rdx,8), %xmm2
+	vandpd	%xmm0, %xmm2, %xmm3
+	vsqrtsd	%xmm3, %xmm3, %xmm3
+	vaddsd	%xmm1, %xmm2, %xmm4
+	vfmadd213sd	%xmm3, %xmm2, %xmm4
+	vmovsd	%xmm4, (%rcx,%rdx,8)
+	incq	%rdx
+	decq	%rbp
+	jne	.LBB0_39
+.LBB0_40:
+	cmpq	$3, %rsi
+	jb	.LBB0_43
+	vmovapd	(%r8), %xmm0
+	movabsq	$.LCPI0_1, %rsi
+	vmovsd	(%rsi), %xmm1
+	.p2align	4, 0x90
+.LBB0_42:
+	vmovsd	(%rbx,%rdx,8), %xmm2
+	vandpd	%xmm0, %xmm2, %xmm3
+	vsqrtsd	%xmm3, %xmm3, %xmm3
+	vaddsd	%xmm1, %xmm2, %xmm4
+	vfmadd213sd	%xmm3, %xmm2, %xmm4
+	vmovsd	%xmm4, (%rcx,%rdx,8)
+	vmovsd	8(%rbx,%rdx,8), %xmm2
+	vandpd	%xmm0, %xmm2, %xmm3
+	vsqrtsd	%xmm3, %xmm3, %xmm3
+	vaddsd	%xmm1, %xmm2, %xmm4
+	vfmadd213sd	%xmm3, %xmm2, %xmm4
+	vmovsd	%xmm4, 8(%rcx,%rdx,8)
+	vmovsd	16(%rbx,%rdx,8), %xmm2
+	vandpd	%xmm0, %xmm2, %xmm3
+	vsqrtsd	%xmm3, %xmm3, %xmm3
+	vaddsd	%xmm1, %xmm2, %xmm4
+	vfmadd213sd	%xmm3, %xmm2, %xmm4
+	vmovsd	%xmm4, 16(%rcx,%rdx,8)
+	vmovsd	24(%rbx,%rdx,8), %xmm2
+	vandpd	%xmm0, %xmm2, %xmm3
+	vsqrtsd	%xmm3, %xmm3, %xmm3
+	vaddsd	%xmm1, %xmm2, %xmm4
+	vfmadd213sd	%xmm3, %xmm2, %xmm4
+	vmovsd	%xmm4, 24(%rcx,%rdx,8)
+	addq	$4, %rdx
+	cmpq	%rdx, %r14
+	jne	.LBB0_42
+	jmp	.LBB0_43
+.LBB0_28:
+	movq	%r14, %rdx
+	andq	$-4, %rdx
+	leaq	-4(%rdx), %rdi
+	movq	%rdi, %rsi
+	shrq	$2, %rsi
+	incq	%rsi
+	movl	%esi, %ebp
+	andl	$3, %ebp
+	movabsq	$.LCPI0_0, %r8
+	movabsq	$.LCPI0_1, %r9
+	cmpq	$12, %rdi
+	jae	.LBB0_31
+	xorl	%edi, %edi
+	jmp	.LBB0_33
+.LBB0_30:
+	xorl	%edx, %edx
+	testb	$1, %sil
+	jne	.LBB0_14
+	jmp	.LBB0_15
+.LBB0_31:
+	andq	$-4, %rsi
+	xorl	%edi, %edi
+	vbroadcastsd	(%r8), %ymm0
+	vbroadcastsd	(%r9), %ymm1
+	.p2align	4, 0x90
+.LBB0_32:
+	vmovupd	(%rbx,%rdi,8), %ymm2
+	vandpd	%ymm0, %ymm2, %ymm3
+	vsqrtpd	%ymm3, %ymm3
+	vaddpd	%ymm1, %ymm2, %ymm4
+	vfmadd213pd	%ymm3, %ymm2, %ymm4
+	vmovupd	%ymm4, (%rcx,%rdi,8)
+	vmovupd	32(%rbx,%rdi,8), %ymm2
+	vandpd	%ymm0, %ymm2, %ymm3
+	vsqrtpd	%ymm3, %ymm3
+	vaddpd	%ymm1, %ymm2, %ymm4
+	vfmadd213pd	%ymm3, %ymm2, %ymm4
+	vmovupd	%ymm4, 32(%rcx,%rdi,8)
+	vmovupd	64(%rbx,%rdi,8), %ymm2
+	vandpd	%ymm0, %ymm2, %ymm3
+	vsqrtpd	%ymm3, %ymm3
+	vaddpd	%ymm1, %ymm2, %ymm4
+	vfmadd213pd	%ymm3, %ymm2, %ymm4
+	vmovupd	%ymm4, 64(%rcx,%rdi,8)
+	vmovupd	96(%rbx,%rdi,8), %ymm2
+	vandpd	%ymm0, %ymm2, %ymm3
+	vsqrtpd	%ymm3, %ymm3
+	vaddpd	%ymm1, %ymm2, %ymm4
+	vfmadd213pd	%ymm3, %ymm2, %ymm4
+	vmovupd	%ymm4, 96(%rcx,%rdi,8)
+	addq	$16, %rdi
+	addq	$-4, %rsi
+	jne	.LBB0_32
+.LBB0_33:
+	testq	%rbp, %rbp
+	je	.LBB0_36
+	shlq	$3, %rdi
+	negq	%rbp
+	vbroadcastsd	(%r8), %ymm0
+	vbroadcastsd	(%r9), %ymm1
+	.p2align	4, 0x90
+.LBB0_35:
+	vmovupd	(%rbx,%rdi), %ymm2
+	vandpd	%ymm0, %ymm2, %ymm3
+	vsqrtpd	%ymm3, %ymm3
+	vaddpd	%ymm1, %ymm2, %ymm4
+	vfmadd213pd	%ymm3, %ymm2, %ymm4
+	vmovupd	%ymm4, (%rcx,%rdi)
+	addq	$32, %rdi
+	incq	%rbp
+	jne	.LBB0_35
+.LBB0_36:
+	cmpq	%r14, %rdx
+	jne	.LBB0_37
+.LBB0_43:
+	movq	(%rsp), %rbx
+.LBB0_44:
+	movq	%rax, (%r13)
+	movq	$0, 8(%r13)
+	movq	%r14, 16(%r13)
+	movq	$8, 24(%r13)
+	movq	%rcx, 32(%r13)
+	movq	%r14, 40(%r13)
+	movq	$8, 48(%r13)
+	movq	%rbx, %rdi
+	vzeroupper
+	callq	*%r12
+	xorl	%eax, %eax
+.LBB0_45:
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 56
+	popq	%rbx
+	.cfi_def_cfa_offset 48
+	popq	%r12
+	.cfi_def_cfa_offset 40
+	popq	%r13
+	.cfi_def_cfa_offset 32
+	popq	%r14
+	.cfi_def_cfa_offset 24
+	popq	%r15
+	.cfi_def_cfa_offset 16
+	popq	%rbp
+	.cfi_def_cfa_offset 8
+	retq
+.LBB0_46:
+	.cfi_def_cfa_offset 64
+	movabsq	$.const.picklebuf.140591526277824, %rax
+	movq	%rax, (%rbx)
+	movl	$1, %eax
+	jmp	.LBB0_45
+.Lfunc_end0:
+	.size	_ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE, .Lfunc_end0-_ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.globl	_ZN7cpython8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE
+	.p2align	4, 0x90
+	.type	_ZN7cpython8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE,@function
+_ZN7cpython8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	subq	$352, %rsp
+	.cfi_offset %rbx, -56
+	.cfi_offset %r12, -48
+	.cfi_offset %r13, -40
+	.cfi_offset %r14, -32
+	.cfi_offset %r15, -24
+	movq	%rsi, %rdi
+	movabsq	$.const.numba_2, %rsi
+	movabsq	$PyArg_UnpackTuple, %rbx
+	leaq	56(%rsp), %r8
+	movl	$1, %edx
+	movl	$1, %ecx
+	xorl	%eax, %eax
+	callq	*%rbx
+	vxorps	%xmm0, %xmm0, %xmm0
+	vmovaps	%ymm0, 64(%rsp)
+	vmovups	%ymm0, 88(%rsp)
+	vmovaps	%ymm0, 128(%rsp)
+	vmovups	%ymm0, 152(%rsp)
+	movq	$0, 48(%rsp)
+	vmovaps	%ymm0, 224(%rsp)
+	vmovups	%ymm0, 248(%rsp)
+	testl	%eax, %eax
+	je	.LBB1_1
+	movabsq	$_ZN08NumbaEnv8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE, %rax
+	movq	(%rax), %r13
+	testq	%r13, %r13
+	je	.LBB1_4
+	movq	56(%rsp), %rdi
+	vxorps	%xmm0, %xmm0, %xmm0
+	vmovaps	%ymm0, 64(%rsp)
+	vmovups	%ymm0, 88(%rsp)
+	movabsq	$NRT_adapt_ndarray_from_python, %rax
+	leaq	64(%rsp), %rsi
+	vzeroupper
+	callq	*%rax
+	testl	%eax, %eax
+	jne	.LBB1_8
+	cmpq	$8, 88(%rsp)
+	jne	.LBB1_8
+	movq	64(%rsp), %r15
+	movq	72(%rsp), %rcx
+	movq	80(%rsp), %r8
+	vmovaps	96(%rsp), %xmm0
+	movq	112(%rsp), %rax
+	vxorps	%xmm1, %xmm1, %xmm1
+	vmovaps	%ymm1, 128(%rsp)
+	vmovups	%ymm1, 152(%rsp)
+	movq	%rax, 16(%rsp)
+	vmovups	%xmm0, (%rsp)
+	movabsq	$_ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE, %rax
+	leaq	128(%rsp), %rdi
+	leaq	48(%rsp), %rsi
+	movl	$8, %r9d
+	movq	%r15, %rdx
+	vzeroupper
+	callq	*%rax
+	movl	%eax, %ebx
+	movq	48(%rsp), %r12
+	movq	128(%rsp), %r14
+	vmovups	136(%rsp), %ymm0
+	vmovaps	%ymm0, 288(%rsp)
+	vmovups	168(%rsp), %xmm0
+	vmovaps	%xmm0, 208(%rsp)
+	movabsq	$NRT_decref, %rax
+	movq	%r15, %rdi
+	movq	%rax, %r15
+	vzeroupper
+	callq	*%rax
+	cmpl	$-2, %ebx
+	je	.LBB1_14
+	testl	%ebx, %ebx
+	jne	.LBB1_11
+.LBB1_14:
+	movq	24(%r13), %rdi
+	testq	%rdi, %rdi
+	je	.LBB1_16
+	movabsq	$PyList_GetItem, %rax
+	xorl	%esi, %esi
+	callq	*%rax
+	movq	%rax, %rbx
+	jmp	.LBB1_17
+.LBB1_11:
+	jle	.LBB1_18
+	movabsq	$PyErr_Clear, %rax
+	callq	*%rax
+	movq	16(%r12), %rdx
+	movl	8(%r12), %esi
+	movq	(%r12), %rdi
+	movabsq	$numba_unpickle, %rax
+	callq	*%rax
+	testq	%rax, %rax
+	je	.LBB1_1
+	movabsq	$numba_do_raise, %rcx
+	movq	%rax, %rdi
+	callq	*%rcx
+	jmp	.LBB1_1
+.LBB1_16:
+	movabsq	$PyExc_RuntimeError, %rdi
+	movabsq	$".const.`env.consts` is NULL in `read_const`", %rsi
+	movabsq	$PyErr_SetString, %rax
+	callq	*%rax
+	xorl	%ebx, %ebx
+.LBB1_17:
+	movabsq	$.const.pickledata.140592951778720, %rdi
+	movabsq	$.const.pickledata.140592951778720.sha1, %rdx
+	movabsq	$numba_unpickle, %rax
+	movl	$32, %esi
+	callq	*%rax
+	movq	%r14, 224(%rsp)
+	vmovaps	288(%rsp), %ymm0
+	vmovups	%ymm0, 232(%rsp)
+	vmovaps	208(%rsp), %xmm0
+	vmovups	%xmm0, 264(%rsp)
+	movabsq	$NRT_adapt_ndarray_to_python_acqref, %r9
+	leaq	224(%rsp), %rdi
+	movq	%rax, %rsi
+	movl	$1, %edx
+	movl	$1, %ecx
+	movq	%rbx, %r8
+	vzeroupper
+	callq	*%r9
+	movq	%rax, %rbx
+	movq	%r14, %rdi
+	callq	*%r15
+	movq	%rbx, %rax
+	jmp	.LBB1_2
+.LBB1_18:
+	movabsq	$PyExc_SystemError, %rdi
+	movabsq	$".const.unknown error when calling native function", %rsi
+.LBB1_5:
+	movabsq	$PyErr_SetString, %rax
+	vzeroupper
+	callq	*%rax
+.LBB1_1:
+	xorl	%eax, %eax
+.LBB1_2:
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	vzeroupper
+	retq
+.LBB1_4:
+	.cfi_def_cfa %rbp, 16
+	movabsq	$PyExc_RuntimeError, %rdi
+	movabsq	$".const.missing Environment: _ZN08NumbaEnv8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE", %rsi
+	jmp	.LBB1_5
+.LBB1_8:
+	movabsq	$PyExc_TypeError, %rdi
+	movabsq	$".const.can't unbox array from PyObject into native value.  The object maybe of a different type", %rsi
+	jmp	.LBB1_5
+.Lfunc_end1:
+	.size	_ZN7cpython8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE, .Lfunc_end1-_ZN7cpython8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.globl	cfunc._ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE
+	.p2align	4, 0x90
+	.type	cfunc._ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE,@function
+cfunc._ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset %rbp, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register %rbp
+	pushq	%r15
+	pushq	%r14
+	pushq	%r13
+	pushq	%r12
+	pushq	%rbx
+	andq	$-32, %rsp
+	subq	$192, %rsp
+	.cfi_offset %rbx, -56
+	.cfi_offset %r12, -48
+	.cfi_offset %r13, -40
+	.cfi_offset %r14, -32
+	.cfi_offset %r15, -24
+	movq	%r8, %rax
+	movq	%rcx, %r8
+	movq	%rdx, %rcx
+	movq	%rsi, %rdx
+	movq	%rdi, %rbx
+	vmovaps	16(%rbp), %xmm0
+	vxorps	%xmm1, %xmm1, %xmm1
+	vmovups	%ymm1, 120(%rsp)
+	vmovaps	%ymm1, 96(%rsp)
+	movq	$0, 48(%rsp)
+	vmovups	%xmm0, 8(%rsp)
+	movq	%r9, (%rsp)
+	movabsq	$_ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE, %r10
+	leaq	96(%rsp), %rdi
+	leaq	48(%rsp), %rsi
+	movq	%rax, %r9
+	vzeroupper
+	callq	*%r10
+	movl	%eax, %r14d
+	movq	48(%rsp), %rdi
+	movq	96(%rsp), %rax
+	movq	104(%rsp), %rcx
+	movq	112(%rsp), %rdx
+	movq	120(%rsp), %rsi
+	movq	128(%rsp), %r12
+	movq	136(%rsp), %r13
+	movq	144(%rsp), %r15
+	movl	$0, 44(%rsp)
+	testl	%r14d, %r14d
+	jne	.LBB2_1
+.LBB2_4:
+	movq	%r15, 48(%rbx)
+	movq	%r13, 40(%rbx)
+	movq	%r12, 32(%rbx)
+	movq	%rsi, 24(%rbx)
+	movq	%rdx, 16(%rbx)
+	movq	%rcx, 8(%rbx)
+	movq	%rax, (%rbx)
+	movq	%rbx, %rax
+	leaq	-40(%rbp), %rsp
+	popq	%rbx
+	popq	%r12
+	popq	%r13
+	popq	%r14
+	popq	%r15
+	popq	%rbp
+	.cfi_def_cfa %rsp, 8
+	retq
+.LBB2_1:
+	.cfi_def_cfa %rbp, 16
+	movq	%rdi, 56(%rsp)
+	movq	%rsi, 64(%rsp)
+	movq	%rdx, 72(%rsp)
+	movq	%rcx, 80(%rsp)
+	movq	%rax, 88(%rsp)
+	movabsq	$numba_gil_ensure, %rax
+	leaq	44(%rsp), %rdi
+	callq	*%rax
+	testl	%r14d, %r14d
+	jle	.LBB2_6
+	movabsq	$PyErr_Clear, %rax
+	callq	*%rax
+	movq	56(%rsp), %rax
+	movq	16(%rax), %rdx
+	movl	8(%rax), %esi
+	movq	(%rax), %rdi
+	movabsq	$numba_unpickle, %rax
+	callq	*%rax
+	testq	%rax, %rax
+	je	.LBB2_3
+	movabsq	$numba_do_raise, %rcx
+	movq	%rax, %rdi
+	callq	*%rcx
+	jmp	.LBB2_3
+.LBB2_6:
+	movabsq	$PyExc_SystemError, %rdi
+	movabsq	$".const.unknown error when calling native function.1", %rsi
+	movabsq	$PyErr_SetString, %rax
+	callq	*%rax
+.LBB2_3:
+	movabsq	$".const.<numba.core.cpu.CPUContext object at 0x7fde03f445b0>", %rdi
+	movabsq	$PyUnicode_FromString, %rax
+	callq	*%rax
+	movq	%rax, %r14
+	movabsq	$PyErr_WriteUnraisable, %rax
+	movq	%r14, %rdi
+	callq	*%rax
+	movabsq	$Py_DecRef, %rax
+	movq	%r14, %rdi
+	callq	*%rax
+	movabsq	$numba_gil_release, %rax
+	leaq	44(%rsp), %rdi
+	callq	*%rax
+	movq	88(%rsp), %rax
+	movq	80(%rsp), %rcx
+	movq	72(%rsp), %rdx
+	movq	64(%rsp), %rsi
+	jmp	.LBB2_4
+.Lfunc_end2:
+	.size	cfunc._ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE, .Lfunc_end2-cfunc._ZN8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE
+	.cfi_endproc
+
+	.weak	NRT_incref
+	.p2align	4, 0x90
+	.type	NRT_incref,@function
+NRT_incref:
+	testq	%rdi, %rdi
+	je	.LBB3_1
+	lock		incq	(%rdi)
+	retq
+.LBB3_1:
+	retq
+.Lfunc_end3:
+	.size	NRT_incref, .Lfunc_end3-NRT_incref
+
+	.weak	NRT_decref
+	.p2align	4, 0x90
+	.type	NRT_decref,@function
+NRT_decref:
+	.cfi_startproc
+	testq	%rdi, %rdi
+	je	.LBB4_2
+	#MEMBARRIER
+	lock		decq	(%rdi)
+	je	.LBB4_3
+.LBB4_2:
+	retq
+.LBB4_3:
+	#MEMBARRIER
+	movabsq	$NRT_MemInfo_call_dtor, %rax
+	jmpq	*%rax
+.Lfunc_end4:
+	.size	NRT_decref, .Lfunc_end4-NRT_decref
+	.cfi_endproc
+
+	.type	_ZN08NumbaEnv8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE,@object
+	.comm	_ZN08NumbaEnv8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE,8,8
+	.type	.const.picklebuf.140591526277824,@object
+	.section	.rodata,"a",@progbits
+	.p2align	4
+.const.picklebuf.140591526277824:
+	.quad	.const.pickledata.140591526277824
+	.long	137
+	.zero	4
+	.quad	.const.pickledata.140591526277824.sha1
+	.size	.const.picklebuf.140591526277824, 24
+
+	.type	.const.pickledata.140591526277824,@object
+	.p2align	4
+.const.pickledata.140591526277824:
+	.ascii	"\200\004\225~\000\000\000\000\000\000\000\214\bbuiltins\224\214\nValueError\224\223\224\214[array is too big; `arr.size * arr.dtype.itemsize` is larger than the maximum possible size.\224\205\224N\207\224."
+	.size	.const.pickledata.140591526277824, 137
+
+	.type	.const.pickledata.140591526277824.sha1,@object
+	.p2align	4
+.const.pickledata.140591526277824.sha1:
+	.ascii	"X\341N\314\265\007\261\340 i\201t\002#\346\205\313\214<W"
+	.size	.const.pickledata.140591526277824.sha1, 20
+
+	.type	.const.numba_2,@object
+.const.numba_2:
+	.asciz	"numba_2"
+	.size	.const.numba_2, 8
+
+	.type	".const.missing Environment: _ZN08NumbaEnv8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE",@object
+	.p2align	4
+".const.missing Environment: _ZN08NumbaEnv8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE":
+	.asciz	"missing Environment: _ZN08NumbaEnv8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE"
+	.size	".const.missing Environment: _ZN08NumbaEnv8__main__11numba_2$241E5ArrayIdLi1E1C7mutable7alignedE", 89
+
+	.type	".const.can't unbox array from PyObject into native value.  The object maybe of a different type",@object
+	.p2align	4
+".const.can't unbox array from PyObject into native value.  The object maybe of a different type":
+	.asciz	"can't unbox array from PyObject into native value.  The object maybe of a different type"
+	.size	".const.can't unbox array from PyObject into native value.  The object maybe of a different type", 89
+
+	.type	".const.`env.consts` is NULL in `read_const`",@object
+	.p2align	4
+".const.`env.consts` is NULL in `read_const`":
+	.asciz	"`env.consts` is NULL in `read_const`"
+	.size	".const.`env.consts` is NULL in `read_const`", 37
+
+	.type	.const.pickledata.140592951778720,@object
+	.p2align	4
+.const.pickledata.140592951778720:
+	.ascii	"\200\004\225\025\000\000\000\000\000\000\000\214\005numpy\224\214\007ndarray\224\223\224."
+	.size	.const.pickledata.140592951778720, 32
+
+	.type	.const.pickledata.140592951778720.sha1,@object
+	.p2align	4
+.const.pickledata.140592951778720.sha1:
+	.ascii	"\337\274\375\323\237\313&\364\320\306\200\225D\207\270\300\265;\270\243"
+	.size	.const.pickledata.140592951778720.sha1, 20
+
+	.type	".const.unknown error when calling native function",@object
+	.p2align	4
+".const.unknown error when calling native function":
+	.asciz	"unknown error when calling native function"
+	.size	".const.unknown error when calling native function", 43
+
+	.type	".const.<numba.core.cpu.CPUContext object at 0x7fde03f445b0>",@object
+	.p2align	4
+".const.<numba.core.cpu.CPUContext object at 0x7fde03f445b0>":
+	.asciz	"<numba.core.cpu.CPUContext object at 0x7fde03f445b0>"
+	.size	".const.<numba.core.cpu.CPUContext object at 0x7fde03f445b0>", 53
+
+	.type	".const.unknown error when calling native function.1",@object
+	.p2align	4
+".const.unknown error when calling native function.1":
+	.asciz	"unknown error when calling native function"
+	.size	".const.unknown error when calling native function.1", 43
+
+	.type	_ZN08NumbaEnv13$3cdynamic$3e37__numba_array_expr_0x7fde03f41b50$242Ed,@object
+	.comm	_ZN08NumbaEnv13$3cdynamic$3e37__numba_array_expr_0x7fde03f41b50$242Ed,8,8
+	.type	_ZN08NumbaEnv5numba2np7npyimpl19_broadcast_onto$243Ex8int64$2ax8int64$2a,@object
+	.comm	_ZN08NumbaEnv5numba2np7npyimpl19_broadcast_onto$243Ex8int64$2ax8int64$2a,8,8
+	.type	_ZN08NumbaEnv5numba2np8arrayobj19_call_allocator$244EN29typeref$5b$3cclass$20$27numba4core5types8npytypes14Array$27$3e$5dExj,@object
+	.comm	_ZN08NumbaEnv5numba2np8arrayobj19_call_allocator$244EN29typeref$5b$3cclass$20$27numba4core5types8npytypes14Array$27$3e$5dExj,8,8
+	.type	_ZN08NumbaEnv5numba2np8arrayobj18_ol_array_allocate12$3clocals$3e8impl$245EN29typeref$5b$3cclass$20$27numba4core5types8npytypes14Array$27$3e$5dExj,@object
+	.comm	_ZN08NumbaEnv5numba2np8arrayobj18_ol_array_allocate12$3clocals$3e8impl$245EN29typeref$5b$3cclass$20$27numba4core5types8npytypes14Array$27$3e$5dExj,8,8
+	.type	_ZN08NumbaEnv13$3cdynamic$3e37__numba_array_expr_0x7fde03f44070$246Ed,@object
+	.comm	_ZN08NumbaEnv13$3cdynamic$3e37__numba_array_expr_0x7fde03f44070$246Ed,8,8
+	.type	_ZN08NumbaEnv5numba7cpython7numbers14int_power_impl12$3clocals$3e13int_power$247Edx,@object
+	.comm	_ZN08NumbaEnv5numba7cpython7numbers14int_power_impl12$3clocals$3e13int_power$247Edx,8,8
+	.section	".note.GNU-stack","",@progbits
